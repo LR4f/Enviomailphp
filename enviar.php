@@ -4,10 +4,14 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $assunto = $_POST['assunto'];
 $mensagem = $_POST['mensagem'];
+$From = 'atendimento@lr4f.github.io.'
 
-echo $nome.'</br>';
-echo $email.'</br>';
-echo $assunto.'</br>';
-echo $mensagem.'</br>';
+$headers = "MIMI-Version: 1.1\n";
+$headers .= "Content-type: text/html; charset=utf-8\n";
+$headers .= "From: TESTE <$From>\n";
+$headers .= "Return-Path: $From\n";
+$headers .= "Reply-to: $email";
+
+mail($email, $mensagem, $headers, $From);
 
 ?>
